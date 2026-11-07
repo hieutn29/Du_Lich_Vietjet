@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nhập thông tin & Đăng ký – Vietjet</title>
+  <link rel="icon" href="assets/images/logo-vietjet.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/cart.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container" id="checkout-root">
+      <div class="page-head">
+        <h1>Nhập thông tin cá nhân</h1>
+        <ol class="steps" aria-label="Các bước đặt chỗ">
+          <li><a href="cart.html">Giỏ hàng</a></li>
+          <li class="is-current" aria-current="step">Nhập thông tin</li>
+          <li>Hoàn thành</li>
+        </ol>
+      </div>
+
+      <div class="cart-layout">
+        <form class="card form-card" id="checkout-form" novalidate aria-labelledby="form-title">
+          <h2 id="form-title" style="font-size:1.15rem">Thông tin liên hệ</h2>
+          <div class="form-grid">
+            <div class="field span-2">
+              <label for="fullName">Họ và tên <span class="req">*</span></label>
+              <input class="input" id="fullName" name="fullName" autocomplete="name" required maxlength="100">
+              <p class="field__error" id="fullName-error"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input class="input" type="email" id="email" name="email" autocomplete="email" required maxlength="120">
+              <p class="field__error" id="email-error"></p>
+            </div>
+            <div class="field">
+              <label for="phone">Số điện thoại <span class="req">*</span></label>
+              <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="0901234567">
+              <p class="field__error" id="phone-error"></p>
+            </div>
+            <div class="field span-2">
+              <label for="idNumber">CCCD / Hộ chiếu <span class="muted">(không bắt buộc)</span></label>
+              <input class="input" id="idNumber" name="idNumber" maxlength="12">
+              <p class="field__error" id="idNumber-error"></p>
+            </div>
+            <div class="field span-2">
+              <label for="note">Ghi chú <span class="muted">(không bắt buộc)</span></label>
+              <textarea class="textarea" id="note" name="note" maxlength="500"></textarea>
+              <span class="char-count" id="note-count">0/500</span>
+              <p class="field__error" id="note-error"></p>
+            </div>
+            <div class="field span-2">
+              <label class="check"><input type="checkbox" id="agree" name="agree" required> Tôi đồng ý với điều khoản sử dụng và chính sách bảo mật (website demo)</label>
+              <p class="field__error" id="agree-error"></p>
+            </div>
+          </div>
+          <button class="btn btn--primary btn--block" type="submit" id="submit-btn" style="margin-top:16px">Đăng ký</button>
+        </form>
+
+        <aside class="card summary" id="order-summary" aria-labelledby="summary-title"></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/checkout.js"></script>
+</body>
+</html>

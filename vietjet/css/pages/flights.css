@@ -1,0 +1,92 @@
+/* ===== Thanh tóm tắt tìm kiếm ===== */
+.search-summary {
+  position: relative;
+  margin-top: -28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+.search-summary__route { font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.search-summary__route svg { width: 18px; height: 18px; color: var(--color-primary); }
+.search-summary__meta { color: var(--color-text-muted); font-size: .9rem; display: flex; gap: 6px 16px; flex-wrap: wrap; }
+
+/* ===== Tab chiều đi / chiều về ===== */
+.leg-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.leg-tab {
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+.leg-tab strong { display: block; }
+.leg-tab span { font-size: .85rem; color: var(--color-text-muted); }
+.leg-tab[aria-selected="true"] { border-color: var(--color-primary); background: var(--color-primary-light); }
+.leg-tab[aria-selected="true"] strong { color: var(--color-primary-dark); }
+
+/* ===== Thẻ chuyến bay ===== */
+.flight-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  grid-template-columns: 1fr;
+}
+.flight-card__top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.flight-card__route {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+.flight-card__point strong { display: block; font-size: 1.35rem; line-height: 1.1; }
+.flight-card__point span { color: var(--color-text-muted); font-weight: 600; font-size: .85rem; }
+.flight-card__point--end { text-align: right; }
+.flight-card__point sup { color: var(--color-primary); font-size: .7rem; }
+.flight-card__line { text-align: center; font-size: .8rem; color: var(--color-text-muted); }
+.flight-card__line hr {
+  border: 0;
+  border-top: 2px dashed var(--color-border);
+  margin: 4px 0;
+  position: relative;
+}
+.flight-card__stop { font-weight: 600; }
+.flight-card__stop--direct { color: var(--color-success); }
+.flight-card__date { display: inline-flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--color-text-muted); }
+.flight-card__date svg { width: 16px; height: 16px; }
+.flight-card__buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+}
+.flight-card__price { margin: 0; font-size: .85rem; color: var(--color-text-muted); }
+.flight-card__price strong { display: block; font-size: 1.25rem; color: var(--color-primary); }
+
+@media (min-width: 640px) {
+  .flight-card { grid-template-columns: 1fr 180px; align-items: center; }
+  .flight-card__info { display: grid; gap: 12px; }
+  .flight-card__buy {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: right;
+    border-top: 0;
+    border-left: 1px solid var(--color-border);
+    padding: 0 0 0 16px;
+    height: 100%;
+    justify-content: center;
+  }
+}

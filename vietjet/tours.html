@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tour du lịch – Vietjet</title>
+  <link rel="icon" href="assets/images/logo-vietjet.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/tours.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-banner">
+      <img src="assets/images/hero-plane.jpg" alt="Máy bay trên bầu trời">
+      <div class="page-banner__overlay">
+        <div class="container">
+          <h1>Tour du lịch</h1>
+          <p class="muted" style="margin:0">Trọn gói vé máy bay, khách sạn và lịch trình (dữ liệu demo)</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="listing">
+        <aside class="filters" id="filters" aria-label="Bộ lọc tour">
+          <form id="filter-form">
+            <div class="filters__head">
+              <h2>Bộ lọc</h2>
+              <button type="button" class="btn btn--ghost btn--sm filters__close" aria-label="Đóng bộ lọc">Đóng</button>
+            </div>
+
+            <fieldset class="filters__group">
+              <legend>Sắp xếp giá</legend>
+              <label class="check"><input type="radio" name="sort" value="asc" checked> Giá tăng dần</label>
+              <label class="check"><input type="radio" name="sort" value="desc"> Giá giảm dần</label>
+            </fieldset>
+
+            <fieldset class="filters__group">
+              <legend>Hãng hàng không</legend>
+              <div id="airline-filters"></div>
+            </fieldset>
+
+            <fieldset class="filters__group">
+              <legend>Giờ cất cánh</legend>
+              <div id="time-filters"></div>
+            </fieldset>
+
+            <button type="button" class="btn btn--secondary btn--block" id="clear-filters">Xoá bộ lọc</button>
+          </form>
+        </aside>
+
+        <section class="results" aria-labelledby="result-count">
+          <div class="results__bar">
+            <p class="results__count" id="result-count" aria-live="polite">Đang tải tour…</p>
+            <button type="button" class="btn btn--secondary btn--sm filters-toggle" id="filters-toggle" aria-controls="filters" aria-expanded="false">Bộ lọc</button>
+          </div>
+          <div class="results__list" id="tour-list"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/tours.js"></script>
+</body>
+</html>

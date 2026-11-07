@@ -1,0 +1,42 @@
+/* Thẻ tour dạng ngang trên trang Tour */
+.tour-row { display: grid; grid-template-columns: 1fr; overflow: hidden; }
+.tour-row__thumb { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--color-surface); }
+.tour-row__body { padding: 16px; display: grid; gap: 10px; }
+.tour-row__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+.tour-row__head h2 { font-size: 1.15rem; margin: 0; }
+.tour-row__head h2 a { color: var(--color-text); }
+.tour-row__head h2 a:hover { color: var(--color-primary); }
+.tour-row__dest { display: inline-flex; align-items: center; gap: 4px; color: var(--color-text-muted); font-size: .88rem; }
+.tour-row__dest svg { width: 15px; height: 15px; }
+.tour-row__flight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  font-size: .88rem;
+  padding: 10px 12px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+.tour-row__flight span { display: inline-flex; align-items: center; gap: 5px; }
+.tour-row__flight svg { width: 15px; height: 15px; color: var(--color-primary); }
+.tour-row__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.tour-row__price { margin: 0; font-size: .85rem; color: var(--color-text-muted); }
+.tour-row__price strong { font-size: 1.3rem; color: var(--color-primary); }
+
+@media (min-width: 640px) {
+  .tour-row { grid-template-columns: 240px 1fr; }
+  .tour-row__thumb { height: 100%; aspect-ratio: auto; min-height: 160px; }
+}
+@media (min-width: 1200px) {
+  .tour-row { grid-template-columns: 300px 1fr; }
+}

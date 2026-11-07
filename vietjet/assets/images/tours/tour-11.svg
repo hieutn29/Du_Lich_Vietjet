@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-label="Ảnh minh hoạ tour Hồng Kông">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcfbf"/><stop offset="1" stop-color="#fff0ea"/></linearGradient></defs>
+<rect width="600" height="400" fill="url(#sky)"/>
+<circle cx="300" cy="140" r="56" fill="#fff3d6"/><rect x="40" y="200" width="60" height="200" fill="#4a5677" opacity="0.7"/><rect x="110" y="150" width="50" height="250" fill="#4a5677" opacity="0.9"/><rect x="170" y="230" width="70" height="170" fill="#4a5677" opacity="0.6"/><rect x="250" y="120" width="55" height="280" fill="#4a5677" opacity="1"/><rect x="315" y="180" width="65" height="220" fill="#4a5677" opacity="0.8"/><rect x="390" y="210" width="50" height="190" fill="#4a5677" opacity="0.7"/><rect x="450" y="140" width="60" height="260" fill="#4a5677" opacity="0.95"/><rect x="520" y="240" width="60" height="160" fill="#4a5677" opacity="0.6"/><rect y="340" width="600" height="60" fill="#4a5677"/>
+<path d="M420 70 l40 -6 l8 -14 l6 0 l-2 16 l26 -4 l6 -8 l5 0 l-2 10 l-2 8 l-5 0 l-4 -6 l-26 4 l4 14 l-6 0 l-10 -12 l-38 6z" fill="#ee1d23" opacity=".85"/>
+<rect x="24" y="24" rx="10" width="143" height="44" fill="#ffffff" opacity=".9"/>
+<text x="40" y="53" font-family="Be Vietnam Pro, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2937">Hồng Kông</text>
+<text x="576" y="384" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1f2937" opacity=".55">Ảnh minh hoạ 600×400</text>
+</svg>

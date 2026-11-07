@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kiểm tra DB – Vietjet (dev)</title>
+  <link rel="icon" href="assets/images/logo-vietjet.jpg">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .dev-table { width: 100%; border-collapse: collapse; font-size: .85rem; margin-bottom: 24px; }
+    .dev-table th, .dev-table td { border: 1px solid var(--color-border); padding: 6px 8px; text-align: left; }
+    .dev-table th { background: var(--color-surface); }
+    .dev-wrap { overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <main class="container section">
+    <h1>Trang kiểm tra dữ liệu (chỉ dùng khi phát triển)</h1>
+    <p class="muted">Nguồn dữ liệu: <code>data/db.db</code>. Đơn hàng đăng ký trên web chỉ lưu trong trình duyệt; dùng nút “Tải DB” để lấy file .db có kèm đơn hàng.</p>
+    <p>
+      <button class="btn btn--secondary" id="reset-btn" type="button">Nạp lại từ db.db</button>
+      <button class="btn btn--secondary" id="download-btn" type="button">Tải DB (kèm đơn hàng)</button>
+      <a href="index.html">Về trang chủ</a>
+    </p>
+    <div id="out" class="dev-wrap">Đang khởi tạo sql.js…</div>
+  </main>
+  <script type="module">
+    import { query, resetDb, downloadDb } from './js/db.js';
+    import { escapeHtml } from './js/utils.js';
+
+    const CHECKS = [
+      ['Số bản ghi', `SELECT (SELECT COUNT(*) FROM airlines) AS airlines, (SELECT COUNT(*) FROM airports) AS airports,
+        (SELECT COUNT(*) FROM flights) AS flights, (SELECT COUNT(*) FROM fares) AS fares,
+        (SELECT COUNT(*) FROM tours) AS tours, (SELECT COUNT(*) FROM tours WHERE is_featured = 1) AS featured,
+        (SELECT COUNT(*) FROM orders) AS orders`],
+      ['5 chuyến SGN → HAN gần nhất', `SELECT f.id, f.flight_no, f.depart_at, f.arrive_at, f.stops, f.trip_type,
+        (SELECT MIN(price) FROM fares WHERE flight_id = f.id) AS min_price
+        FROM flights f JOIN airports fa ON fa.id = f.from_airport_id JOIN airports ta ON ta.id = f.to_airport_id
+        WHERE fa.code = 'SGN' AND ta.code = 'HAN' ORDER BY f.depart_at LIMIT 5`],
+      ['Tour nổi bật', 'SELECT id, name, days, nights, price, depart_at FROM tours WHERE is_featured = 1'],
+      ['Đơn hàng gần đây', `SELECT o.order_code, c.full_name, c.email, o.total, o.email_status, o.created_at
+        FROM orders o JOIN customers c ON c.id = o.customer_id ORDER BY o.id DESC LIMIT 10`],
+    ];
+
+    function table(rows) {
+      if (!rows.length) return '<p class="muted">(trống)</p>';
+      const cols = Object.keys(rows[0]);
+      return `<table class="dev-table"><thead><tr>${cols.map((c) => `<th>${escapeHtml(c)}</th>`).join('')}</tr></thead>
+        <tbody>${rows.map((r) => `<tr>${cols.map((c) => `<td>${escapeHtml(r[c])}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    }
+
+    const out = document.getElementById('out');
+    try {
+      let html = '';
+      for (const [title, sql] of CHECKS) html += `<h2>${escapeHtml(title)}</h2>${table(await query(sql))}`;
+      out.innerHTML = html;
+    } catch (err) {
+      console.error(err);
+      out.textContent = `Lỗi: ${err.message}`;
+    }
+
+    document.getElementById('download-btn').addEventListener('click', () => downloadDb());
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      resetDb();
+      location.reload();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-label="Ảnh minh hoạ tour Đà Nẵng – Hội An">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd7a8"/><stop offset="1" stop-color="#ffefe0"/></linearGradient></defs>
+<rect width="600" height="400" fill="url(#sky)"/>
+<circle cx="460" cy="120" r="48" fill="#fff6c9"/><path d="M0 270 Q150 240 300 268 T600 262 V400 H0Z" fill="#2b8a9e" opacity=".55"/><path d="M0 300 Q150 280 300 300 T600 296 V400 H0Z" fill="#2b8a9e"/><path d="M0 352 Q200 330 600 350 V400 H0Z" fill="#f4e3b5"/>
+<path d="M420 70 l40 -6 l8 -14 l6 0 l-2 16 l26 -4 l6 -8 l5 0 l-2 10 l-2 8 l-5 0 l-4 -6 l-26 4 l4 14 l-6 0 l-10 -12 l-38 6z" fill="#ee1d23" opacity=".85"/>
+<rect x="24" y="24" rx="10" width="234" height="44" fill="#ffffff" opacity=".9"/>
+<text x="40" y="53" font-family="Be Vietnam Pro, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2937">Đà Nẵng – Hội An</text>
+<text x="576" y="384" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1f2937" opacity=".55">Ảnh minh hoạ 600×400</text>
+</svg>

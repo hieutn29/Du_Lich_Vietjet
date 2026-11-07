@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #ee1d23;
+  --color-primary-dark: #c8141a;
+  --color-primary-light: #fdeaea;   /* nền nhẹ cho badge, hover */
+  --color-accent: #ffc20e;          /* vàng, dùng tiết chế (nhãn giá tốt) */
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f8;         /* nền section xen kẽ, sidebar */
+  --color-border: #e5e7eb;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-error: #dc2626;
+  --color-warning-light: #fff7e0;
+  --color-overlay: rgba(17, 24, 39, .45);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 6px 20px rgba(0,0,0,.10);
+
+  --font-main: "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  --container: 1200px;
+  --gutter: 16px;
+  --header-h: 64px;
+}
+
+@media (min-width: 640px) {
+  :root { --gutter: 24px; }
+}

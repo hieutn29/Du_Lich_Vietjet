@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vietjet – Vé máy bay & Tour du lịch</title>
+  <meta name="description" content="Tìm chuyến bay, tour du lịch nổi bật và đặt chỗ nhanh chóng (website demo).">
+  <link rel="icon" href="assets/images/logo-vietjet.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="hero" id="search" aria-labelledby="hero-title">
+      <div class="hero__bg">
+        <img src="assets/images/hero-crew.jpg" alt="Phi hành đoàn chào khách bên cạnh máy bay" fetchpriority="high">
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title">Bay khắp nơi, giá thật vui</h1>
+          <p>Tìm vé máy bay và tour du lịch trong nước, quốc tế chỉ trong vài bước.</p>
+        </div>
+
+        <form class="search-card" id="search-form" novalidate aria-label="Tìm chuyến bay">
+          <div class="search-card__trip" role="radiogroup" aria-label="Loại vé">
+            <label class="pill"><input type="radio" name="trip" value="roundtrip" checked> Khứ hồi</label>
+            <label class="pill"><input type="radio" name="trip" value="oneway"> Một chiều</label>
+          </div>
+
+          <div class="search-card__grid">
+            <div class="route">
+              <div class="field">
+                <label for="from">Điểm xuất phát</label>
+                <select class="select" id="from" name="from" required>
+                  <option value="">Chọn điểm đi</option>
+                </select>
+                <p class="field__error" id="from-error"></p>
+              </div>
+              <button class="route__swap" type="button" id="swap-btn" aria-label="Đảo chiều điểm đi và điểm đến"></button>
+              <div class="field">
+                <label for="to">Điểm đến</label>
+                <select class="select" id="to" name="to" required>
+                  <option value="">Chọn điểm đến</option>
+                </select>
+                <p class="field__error" id="to-error"></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="depart">Ngày đi</label>
+              <input class="input" type="date" id="depart" name="depart" required>
+              <p class="field__error" id="depart-error"></p>
+            </div>
+            <div class="field" id="return-field">
+              <label for="return">Ngày về</label>
+              <input class="input" type="date" id="return" name="return">
+              <p class="field__error" id="return-error"></p>
+            </div>
+            <div class="field">
+              <label for="pax">Hành khách (người lớn)</label>
+              <select class="select" id="pax" name="pax"></select>
+            </div>
+            <button class="btn btn--primary search-card__submit" type="submit" id="search-btn">Tìm kiếm</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tours-title">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 id="tours-title">Tour du lịch nổi bật</h2>
+            <p class="muted" style="margin:0">Trọn gói vé máy bay, khách sạn và trải nghiệm</p>
+          </div>
+          <a class="btn btn--secondary btn--sm" href="tours.html">Xem tất cả tour</a>
+        </div>
+        <div class="tour-grid" id="featured-tours" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="airlines-title">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="airlines-title">Hãng hàng không</h2>
+          <p class="muted" style="margin:0">Chọn hãng để xem các chuyến bay</p>
+        </div>
+        <div class="airline-grid" id="airline-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script type="module" src="js/pages/home.js"></script>
+</body>
+</html>
